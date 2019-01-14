@@ -29,7 +29,8 @@ else:
 
 markdown = u"[{title}]({url})".format(title=title, url=url)
 html = u"<a href='{url}'>{title}</a>".format(url=url, title=title)
-textutil = Popen(['textutil', '-stdin', '-format', 'html', '-convert', 'rtf', '-inputencoding', 'UTF-8', '-stdout'],
+textutil = Popen(['textutil', '-stdin', '-format', 'html', '-convert', 'rtf',
+                  '-inputencoding', 'UTF-8', '-stdout'],
                  stdout=PIPE, stdin=PIPE, stderr=PIPE)
 rtf = textutil.communicate(input=html.encode('utf-8'))[0]
 
